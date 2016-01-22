@@ -1,0 +1,21 @@
+$breakpoints :(
+	sm: (
+		remSize: 16px,
+		width: 320px
+	),
+	md: (
+		remSize: 19px,
+		width: 480px
+	),
+	lg: (
+		remSize: 19px,
+		width: 800px
+	),
+	xl: (
+		remSize: 24px,
+		width: 1200px
+	),
+
+	nav_inline: 580px,
+	nav_slide: 348px
+);

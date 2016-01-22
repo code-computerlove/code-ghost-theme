@@ -1,0 +1,25 @@
+linters:
+
+  Indentation:
+    allow_non_nested_indentation: true
+    enabled: true
+    character: tab
+    width: 1
+
+  LeadingZero:
+    enabled: false
+
+  NameFormat:
+    enabled: false
+
+  SelectorFormat:
+    convention: ^(_)?[a-z]+-[a-z0-9-]+((_{2}|-{2})?[a-z0-9-]+)?(-{2}[a-z0-9-]+)?[a-z0-9]$
+    convention_explanation: 'should be written in namespaced, hyphenated BEM format'
+    ignored_types: [element]
+
+  Shorthand:
+    enabled: false
+
+  SpaceAfterPropertyColon:
+    enabled: true
+    style: at_least_one_space

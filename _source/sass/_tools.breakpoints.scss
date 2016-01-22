@@ -1,0 +1,42 @@
+// Get a breakpoint from the defined map, or return the value as em
+@function get-breakpoint($breakpoint) {
+	@if(map-has-key($breakpoints, $breakpoint)) {
+		$breakpoint: map-get($breakpoints, $breakpoint);
+
+		@if(type-of($breakpoint) == map) {
+			@return em(map-get($breakpoint, width));
+		} @else {
+			@return em($breakpoint);
+		}
+	} @else if (type-of($breakpoint) == number) {
+		@return em($breakpoint);
+	} @else {
+		@warn "The breakpoint `#{$breakpoint}` is not defined.";
+		@return $breakpoint;
+	}
+}
+
+@mixin respond-max($breakpoint, $dimension: width) {
+	$dimension-max: get-breakpoint($breakpoint) - em(1px);
+
+	@media screen and (max-#{$dimension}: $dimension-max) {
+		@content;
+	}
+}
+
+@mixin respond-min($breakpoint, $dimension: width) {
+	$dimension-min: get-breakpoint($breakpoint);
+
+	@media screen and (min-#{$dimension}: $dimension-min) {
+		@content;
+	}
+}
+
+@mixin respond-min-max($breakpoint-min, $breakpoint-max, $dimension: width) {
+	$dimension-min: get-breakpoint($breakpoint-min);
+	$dimension-max: get-breakpoint($breakpoint-max) - em(1px);
+
+	@media screen and (min-#{$dimension}: $dimension-min) and (max-#{$dimension}: $dimension-max) {
+		@content;
+	}
+}

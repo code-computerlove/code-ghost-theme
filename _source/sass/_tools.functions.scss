@@ -1,0 +1,53 @@
+$color-warning: red; // scss-lint:disable ColorKeyword
+
+// Convert pixel value to em
+@function em($px-value) {
+	$size: $px-value/ 16px;
+	@return $size * 1em;
+}
+
+// Get a colour use from the defined map
+@function get-color($name) {
+	@if not map-has-key($color-uses, $name) {
+		@warn "The colour use `#{$name}` is not defined.";
+		@return $color-warning;
+	} @else {
+		$color: map-get($color-uses, $name);
+		@if not map-has-key($colors, $color) {
+			@warn "The colour `#{$colour}` is not defined.";
+			@return $color-warning;
+		}
+
+		@return map-get($colors, $color);
+	}
+}
+
+// Get font weight
+@function get-weight($name) {
+	@if not map-has-key($f-weights, $name) {
+		@warn "The font-weight `#{$name}` is not defined.";
+	}
+
+	@return map-get($f-weights, $name);
+}
+
+// Converts a px value to rems
+@function rem-convert($px-value, $multiplier: 16px) {
+	$size: $px-value / $multiplier;
+	@return $size * 1rem;
+}
+
+// Converts a px value to rems according to a breakpoint
+@function rem($size: 16px, $breakpoint: sm) {
+	$multiplier: get-rem-size($breakpoint);
+	@return rem-convert($size, $multiplier);
+}
+
+// Get base rem size of a particular breakpoint
+@function get-rem-size($breakpoint) {
+	@if(map-has-key($breakpoints, $breakpoint)) {
+		@return map-get(map-get($breakpoints, $breakpoint), remSize)
+	} @else {
+		@warn "The breakpoint `#{$breakpoint}` is not defined.";
+	}
+}

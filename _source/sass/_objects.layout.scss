@@ -1,0 +1,11 @@
+.o-layout {
+	@include clearfix;
+}
+
+	.o-layout__left {
+		float: left;
+	}
+
+	.o-layout__right {
+		float: right;
+	}
