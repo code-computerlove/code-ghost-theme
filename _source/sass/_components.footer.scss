@@ -1,0 +1,7 @@
+.c-footer {
+	background-color: get-color(footer-bg);
+	color: get-color(footer-text);
+	font-size: rem(get-rem-size(sm)*0.75);
+	padding-bottom: rem($d-gutter);
+	padding-top: rem($d-gutter);
+}
