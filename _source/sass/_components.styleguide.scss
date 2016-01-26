@@ -1,0 +1,37 @@
+$styleguide-colors: (black, code-aubergine, code-blue, code-grey, code-mint, code-mustard, code-red, white); // scss-lint:disable ColorVariable, ColorKeyword
+
+.c-styleguide {
+	display: block;
+}
+
+	.c-styleguide__color {
+		font-family: monospace;
+		font-size: rem(get-rem-size(sm)*0.75);
+		text-align: center;
+
+		&:before {
+			content: ' ';
+			display: block;
+			padding-top: 50%;
+			width: 100%;
+		}
+	}
+
+@each $color in $styleguide-colors {
+	.c-styleguide__color--#{$color} {
+		$value: map-get($colors, $color);
+
+		&:after {
+			color: get-color(styleguide-color-text, lighten, 65%);
+			content: '#{$value}';
+			display: block;
+		}
+
+		&:before {
+			background-color: $value;
+			@if $color == white {
+				box-shadow: 0 0 0 1px get-color(styleguide-color-text, lighten, 80%);
+			}
+		}
+	}
+}
