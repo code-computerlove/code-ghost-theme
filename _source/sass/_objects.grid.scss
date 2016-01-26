@@ -6,3 +6,7 @@
 		box-sizing: border-box;
 		padding-left: rem($d-gutter);
 	}
+
+	.o-grid__item--stacked {
+		padding-bottom: rem($d-gutter);
+	}

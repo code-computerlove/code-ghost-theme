@@ -30,12 +30,20 @@
 //
 // <div class="u-1/3">
 
+.u-1\/1 {  // scss-lint:disable SelectorFormat
+	width: 100%;
+}
+
 @include widths(3 4);
 
+@include respond-min(sm) {
+	@include widths(2, '\\@sm');
+};
+
 @include respond-min(md) {
-	@include widths(6, '\\@md');
+	@include widths(3 6, '\\@md');
 };
 
 @include respond-min(lg) {
-	@include widths(8, '\\@lg');
+	@include widths(4 8, '\\@lg');
 };
