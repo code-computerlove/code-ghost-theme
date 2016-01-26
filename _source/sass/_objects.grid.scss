@@ -1,0 +1,8 @@
+.o-grid {
+	margin-left: -#{rem($d-gutter)};
+}
+
+	.o-grid__item {
+		box-sizing: border-box;
+		padding-left: rem($d-gutter);
+	}
