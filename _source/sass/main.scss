@@ -7,13 +7,25 @@
 @import 'tools.functions';
 @import 'tools.mixins';
 
-@import 'elements.page';
-@import 'elements.images';
-@import 'elements.links';
-
+@import 'generic.normalize';
 @import 'generic.helpers';
 
+@import 'elements.page';
+@import 'elements.headings';
+@import 'elements.images';
+@import 'elements.links';
+@import 'elements.misc';
+
+@import 'objects.grid';
 @import 'objects.lists';
 @import 'objects.layout';
+@import 'objects.wrapper';
 
-//@import 'components.name';
+@import 'components.author';
+@import 'components.footer';
+@import 'components.header';
+@import 'components.meta';
+@import 'components.pagination';
+
+@import 'trumps.align';
+@import 'trumps.widths';
