@@ -1,0 +1,30 @@
+blockquote {
+	@include clearfix;
+
+	background-color: get-color(blockquote-bg, lighten, 95%);
+	border-left: rem(3px) solid get-color(blockquote-border);
+	border-radius: 0 rem($d-border-radius) rem($d-border-radius) 0;
+	font-style: italic;
+	margin: rem($d-gutter) 0;
+	padding: 0 rem($d-gutter);
+}
+
+code {
+	background-color: get-color(code-bg, lighten, 95%);
+	border-radius: rem($d-border-radius);
+	padding: rem(1px) rem(4px);
+
+	pre > & {
+		border-left: rem(3px) solid get-color(blockquote-border, lighten, 75%);
+		border-radius: 0 rem($d-border-radius) rem($d-border-radius) 0;
+		display: block;
+		padding: rem($d-gutter);
+	}
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid get-color(hr, lighten, 90%);
+	height: 0;
+	margin: rem($d-gutter*2) 0;
+}
