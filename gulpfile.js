@@ -138,7 +138,7 @@ var sassReporter = function(file, stream) {
 \* ============================================================ */
 
 gulp.task('html', function () {
-	gulp.src([paths.src.html + '/**/*.hbs', paths.src.html + '/*.json'])
+	return gulp.src([paths.src.html + '/**/*.hbs', paths.src.html + '/*.json'])
 		.pipe(gulp.dest(paths.dest.html));
 });
 
@@ -148,7 +148,7 @@ gulp.task('html', function () {
 \* ============================================================ */
 
 gulp.task('images', function () {
-	gulp.src([paths.src.img + '/**/*.{jpg,png,gif,ico,svg}'])
+	return gulp.src([paths.src.img + '/**/*.{jpg,png,gif,ico,svg}'])
 		.pipe(plugins.imagemin({
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}]
@@ -183,7 +183,7 @@ gulp.task('sass:lint', function () {
 });
 
 gulp.task('sass:prod', function () {
-	gulp.src([paths.src.sass_file])
+	return gulp.src([paths.src.sass_file])
 		.pipe(plugins.sass({errLogToConsole: true, includePaths: [paths.src.sass_includes]}).on('error', plugins.sass.logError))
 		.pipe(plugins.autoprefixer({browsers: ['> 5%']}))
 		.pipe(plugins.minifyCss(minifyCssOpts))
@@ -196,7 +196,6 @@ gulp.task('sass:prod', function () {
 \* ============================================================ */
 
 gulp.task('scripts:dev', function () {
-
 	gulp.src(paths.src.js + '/*.js')
 		.pipe(plugins.concat(config.js_file))
 		.pipe(gulp.dest(paths.dest.js))
@@ -210,7 +209,7 @@ gulp.task('scripts:init', function () {
 });
 
 gulp.task('scripts:prod', function () {
-	gulp.src(paths.src.js + '/*.js')
+	return gulp.src(paths.src.js + '/*.js')
 		.pipe(plugins.concat(config.js_file))
 		.pipe(plugins.uglify())
 		.pipe(gulp.dest(paths.dest.js));
@@ -220,6 +219,17 @@ gulp.task('scripts:lint', function() {
 	gulp.src([paths.src.js + '/*.js'])
 		.pipe(plugins.jshint())
 		.pipe(es.map(jsReporter));
+});
+
+
+/* ============================================================ *\
+	ZIP / PACKAGE
+\* ============================================================ */
+
+gulp.task('zip', ['prod'], function() {
+    return gulp.src(paths.dest.html + '/**/*')
+        .pipe(plugins.zip('code-ghost-theme.zip'))
+        .pipe(gulp.dest(config.root));
 });
 
 
@@ -236,3 +246,5 @@ gulp.task('watch', function () {
 
 gulp.task('dev', ['sass:init', 'scripts:lint', 'scripts:init', 'images', 'html']);
 gulp.task('prod', ['sass:prod', 'scripts:lint', 'scripts:prod', 'images', 'html']);
+
+gulp.task('package', ['zip']);
