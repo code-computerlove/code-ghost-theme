@@ -6,7 +6,7 @@ var es = require('event-stream'),
 	fs = require('fs'),
 	gulp = require('gulp'),
 	gutil = require('gulp-util'),
-	plugins = require('gulp-load-plugins')({
+		plugins = require('gulp-load-plugins')({
 		pattern: ['gulp-*', 'gulp.*']
 	});
 
@@ -24,6 +24,7 @@ var config = {
 
 var minifyCssOpts = {
 	advanced: false,
+	keepSpecialComments: 0,
 	mediaMerging: false,
 	processImport: false,
 	roundingPrecision: 6
@@ -137,8 +138,14 @@ var sassReporter = function(file, stream) {
 	HTML / HBS (HANDLEBARS) TEMPLATES
 \* ============================================================ */
 
-gulp.task('html', function () {
+gulp.task('html:dev', function () {
 	return gulp.src([paths.src.html + '/**/*.hbs', paths.src.html + '/*.json'])
+		.pipe(gulp.dest(paths.dest.html));
+});
+
+gulp.task('html:prod', ['sass:prod'], function () {
+	return gulp.src([paths.src.html + '/**/*.hbs', paths.src.html + '/*.json'])
+		.pipe(plugins.inlineSource({rootpath: paths.dest.html}))
 		.pipe(gulp.dest(paths.dest.html));
 });
 
@@ -244,7 +251,7 @@ gulp.task('watch', function () {
 	gulp.watch([paths.dest.html + '/**/*.hbs']).on('change', plugins.livereload.changed);
 });
 
-gulp.task('dev', ['sass:init', 'scripts:lint', 'scripts:init', 'images', 'html']);
-gulp.task('prod', ['sass:prod', 'scripts:lint', 'scripts:prod', 'images', 'html']);
+gulp.task('dev', ['sass:init', 'scripts:lint', 'scripts:init', 'images', 'html:dev']);
+gulp.task('prod', ['sass:prod', 'scripts:lint', 'scripts:prod', 'images', 'html:prod']);
 
 gulp.task('package', ['zip']);
