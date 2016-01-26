@@ -1,0 +1,5 @@
+.c-pagination {
+	border-top: rem(1px) solid get-color(border, lighten, 85%);
+	margin-top: rem($d-gutter*2);
+	padding: rem($d-gutter) 0;
+}
