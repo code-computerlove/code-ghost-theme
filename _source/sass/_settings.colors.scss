@@ -12,4 +12,30 @@ $colors: (
 $color-uses: (
 	primary: code-blue,
 	primary-alt: code-red,
+
+	author-border: code-grey,
+
+	blockquote-bg: code-blue,
+	blockquote-border: code-aubergine,
+	body-text: code-grey,
+	border: code-grey,
+
+	code-bg: code-blue,
+	code-border: code-aubergine,
+
+	footer-bg: code-blue,
+	footer-text: code-red,
+
+	header-bg: code-red,
+	header-text: code-blue,
+	header-hover-text: black,
+
+	heading-text: code-blue,
+	hr: code-grey,
+
+	link-text: code-blue,
+	link-border: code-grey,
+	link-hover-border: code-red,
+
+	meta-text: code-grey
 );
