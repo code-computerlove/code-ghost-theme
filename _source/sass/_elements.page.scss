@@ -1,4 +1,5 @@
 body {
+	color: get-color(body-text);
 	font-family: $f-family;
 	font-weight: get-weight(normal);
 	line-height: 1.5;
@@ -6,5 +7,18 @@ body {
 }
 
 html {
-	font-size: 1rem;
+	font-size: get-rem-size(sm);
+	height: 100%;
+
+	@include respond-min(md) {
+		font-size: get-rem-size(md);
+	}
+
+	@include respond-min(lg) {
+		font-size: get-rem-size(lg);
+	}
+
+	@include respond-min(xl) {
+		font-size: get-rem-size(xl);
+	}
 }
