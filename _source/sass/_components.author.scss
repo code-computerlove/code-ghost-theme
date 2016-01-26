@@ -1,0 +1,38 @@
+.c-author {
+	border-top: rem(1px) solid get-color(author-border, lighten, 85%);
+	margin-top: rem($d-gutter*2);
+	padding: rem($d-gutter*2) 0;
+}
+
+.c-author--brief {
+	font-size: rem(get-rem-size(sm)*0.75);
+}
+
+	.c-author__bio {
+		margin: 0;
+	}
+
+	.c-author__img {
+		border-radius: 100%;
+		display: block;
+		overflow: hidden;
+	}
+
+	.c-author__img--thumb {
+		display: inline-block;
+		margin-right: rem(5px);
+		vertical-align: middle;
+		width: rem(get-rem-size(sm)*1.25);
+	}
+
+	.c-author__link {
+		margin: 0;
+	}
+
+	.c-author__name {
+		margin: 0;
+	}
+
+	.c-author__photo {
+		margin: 0;
+	}
