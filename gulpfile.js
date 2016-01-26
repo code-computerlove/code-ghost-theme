@@ -15,9 +15,11 @@ var config = {
 	css: 'css',
 	img: 'images',
 	js: 'js',
-	js_file: 'main.js',
+	js_main: 'main.js',
 	root: '.',
 	sass: 'sass',
+	sass_main: 'main.scss',
+	sass_styleguide: 'styleguide.scss',
 	src: '_source',
 	pixelBase: '16px'
 };
@@ -36,14 +38,15 @@ var paths = {
 		html: config.root + '/' + config.dest,
 		img: config.root + '/' + config.dest + '/assets/' + config.img,
 		js: config.root + '/' + config.dest + '/assets/' + config.js,
-		js_file: config.root + '/' + config.dest + '/assets/' + config.js + '/' + config.js_file
+		js_main: config.root + '/' + config.dest + '/assets/' + config.js + '/' + config.js_main
 	},
 	src: {
 		html: config.root + '/' + config.src,
 		img: config.root + '/' + config.src + '/' + config.img,
 		js: config.root + '/' + config.src + '/' + config.js,
 		sass: config.root + '/' + config.src + '/' + config.sass,
-		sass_file: config.root + '/' + config.src + '/' + config.sass + '/main.scss'
+		sass_main: config.root + '/' + config.src + '/' + config.sass + '/main.scss',
+		sass_styleguide: config.root + '/' + config.src + '/' + config.sass + '/styleguide.scss'
 	}
 };
 
@@ -89,6 +92,8 @@ var jsReporter = function (file, stream) {
 
 	}
 };
+
+var sass_files = [paths.src.sass_main, paths.src.sass_styleguide];
 
 var sassReporter = function(file, stream) {
 	if(!file.scsslint.success) {
@@ -169,7 +174,7 @@ gulp.task('images', function () {
 \* ============================================================ */
 
 gulp.task('sass:dev', function () {
-	gulp.src([paths.src.sass_file])
+	gulp.src(sass_files)
 		.pipe(plugins.sass({errLogToConsole: true, includePaths: [paths.src.sass_includes], outputStyle: 'compact'}).on('error', plugins.sass.logError))
 		.pipe(plugins.autoprefixer({browsers: ['> 5%']}))
 		.pipe(gulp.dest(paths.dest.css))
@@ -177,7 +182,7 @@ gulp.task('sass:dev', function () {
 });
 
 gulp.task('sass:init', function () {
-	gulp.src([paths.src.sass_file])
+	gulp.src(sass_files)
 		.pipe(plugins.sass({errLogToConsole: true, includePaths: [paths.src.sass_includes], outputStyle: 'compact'}).on('error', plugins.sass.logError))
 		.pipe(plugins.autoprefixer({browsers: ['> 5%']}))
 		.pipe(gulp.dest(paths.dest.css));
@@ -190,7 +195,7 @@ gulp.task('sass:lint', function () {
 });
 
 gulp.task('sass:prod', function () {
-	return gulp.src([paths.src.sass_file])
+	return gulp.src(sass_files)
 		.pipe(plugins.sass({errLogToConsole: true, includePaths: [paths.src.sass_includes]}).on('error', plugins.sass.logError))
 		.pipe(plugins.autoprefixer({browsers: ['> 5%']}))
 		.pipe(plugins.minifyCss(minifyCssOpts))
@@ -204,20 +209,20 @@ gulp.task('sass:prod', function () {
 
 gulp.task('scripts:dev', function () {
 	gulp.src(paths.src.js + '/*.js')
-		.pipe(plugins.concat(config.js_file))
+		.pipe(plugins.concat(config.js_main))
 		.pipe(gulp.dest(paths.dest.js))
 		.pipe(plugins.livereload());
 });
 
 gulp.task('scripts:init', function () {
 	gulp.src(paths.src.js + '/*.js')
-		.pipe(plugins.concat(config.js_file))
+		.pipe(plugins.concat(config.js_main))
 		.pipe(gulp.dest(paths.dest.js));
 });
 
 gulp.task('scripts:prod', function () {
 	return gulp.src(paths.src.js + '/*.js')
-		.pipe(plugins.concat(config.js_file))
+		.pipe(plugins.concat(config.js_main))
 		.pipe(plugins.uglify())
 		.pipe(gulp.dest(paths.dest.js));
 });
@@ -247,7 +252,7 @@ gulp.task('zip', ['prod'], function() {
 gulp.task('watch', function () {
 	gulp.watch([paths.src.sass  +  '/**/*.scss'], ['sass:dev', 'sass:lint']);
 	gulp.watch([paths.src.js + '/**/*.js'], ['scripts:dev', 'scripts:lint']);
-	gulp.watch([paths.src.html + '/**/*.hbs'], ['html']);
+	gulp.watch([paths.src.html + '/**/*.hbs'], ['html:dev']);
 	gulp.watch([paths.dest.html + '/**/*.hbs']).on('change', plugins.livereload.changed);
 });
 
