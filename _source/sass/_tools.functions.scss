@@ -7,7 +7,7 @@ $color-warning: red; // scss-lint:disable ColorKeyword
 }
 
 // Get a colour use from the defined map
-@function get-color($name) {
+@function get-color($name, $adjust: false, $amount: 0%) {
 	@if not map-has-key($color-uses, $name) {
 		@warn "The colour use `#{$name}` is not defined.";
 		@return $color-warning;
@@ -18,7 +18,15 @@ $color-warning: red; // scss-lint:disable ColorKeyword
 			@return $color-warning;
 		}
 
-		@return map-get($colors, $color);
+		$value: map-get($colors, $color);
+
+		@if $adjust == lighten {
+			$value: mix(#fff, $value, $amount); // scss-lint:disable ColorVariable
+		} @else if $adjust == darken {
+			$value: mix(#000, $value, $amount); // scss-lint:disable ColorVariable
+		}
+
+		@return $value;
 	}
 }
 
