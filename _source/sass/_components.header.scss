@@ -2,18 +2,21 @@ $d-cl: 32px;
 
 .c-header {
 	background-color: get-color(header-bg);
-	color: get-color(header-text);
 	padding-bottom: rem($d-gutter);
 	padding-top: rem($d-gutter);
 }
 
 	.c-header__cl {
 		height: rem($d-cl);
+		padding-right: rem($d-gutter);
+	}
+
+	.c-header__path {
+		fill: get-color(header-text);
 	}
 
 	.c-header__title {
-		height: rem($d-cl);
-		margin-left: rem($d-gutter);
-		padding-left: rem($d-gutter);
 		border-left: 2px solid get-color(header-text);
+		height: rem($d-cl);
+		padding-left: rem($d-gutter);
 	}
