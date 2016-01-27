@@ -5,3 +5,17 @@
 	padding-bottom: rem($d-gutter);
 	padding-top: rem($d-gutter);
 }
+
+$footer-height: rem($d-gutter*2 + (get-rem-size(sm)*0.75)*1.5); // gutter + font-size * line-height
+
+.c-footer-push {
+	box-sizing: border-box;
+	margin-bottom: -#{$footer-height};
+	min-height: 100%;
+	padding-bottom: $footer-height;
+
+	&:after {
+		content: ' ';
+		display: block;
+	}
+}

@@ -1,9 +1,13 @@
 .o-layout {
-	@include clearfix;
+	@include breakpoints(post_float) {
+		@include clearfix;
+	}
 }
 
 	.o-layout__left {
-		float: left;
+		@include breakpoints(post_float) {
+			float: left;
+		}
 	}
 
 	.o-layout__right {

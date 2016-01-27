@@ -1,0 +1,14 @@
+.c-banner {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	max-height: rem(480px);
+}
+
+	.c-banner__image {
+		padding-top: 4/5*100%;
+
+		@include respond-min(md) {
+			padding-top: 9/16*100%;
+		}
+	}

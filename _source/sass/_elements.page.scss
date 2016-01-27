@@ -2,6 +2,7 @@ body {
 	color: get-color(body-text);
 	font-family: $f-family;
 	font-weight: get-weight(normal);
+	height: 100%;
 	line-height: 1.5;
 	margin: 0;
 }

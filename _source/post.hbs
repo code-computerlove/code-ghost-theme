@@ -1,64 +1,51 @@
 {{!< default}}
 
 {{#post}}
+{{#if image}}
+<div class="c-banner" style="background-image: url({{image}});">
+	<div class="c-banner__image o-wrapper">
 
-<!-- {{#if image}} {{image}} {{/if}} -->
+	</div>
+</div>
+{{/if}}
+<div class="o-wrapper">
+	<main role="main">
+	    <article>
 
-<main role="main">
-    <article>
+	        <header>
+	            <h1 class="post-title">{{title}}</h1>
+	            <section class="c-meta">
+	                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+					{{#foreach tags}}{{#if @first}} in {{/if}}<a href="{{url}}" title="{{name}}" class="c-meta__link">{{name}}</a>{{#unless @last}}, {{/unless}}{{/foreach}}
+	            </section>
+	        </header>
 
-        <header>
-            <h1 class="post-title">{{title}}</h1>
-            <section class="c-meta">
-                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-				{{#foreach tags}}{{#if @first}} in {{/if}}<a href="{{url}}" title="{{name}}" class="c-meta__link">{{name}}</a>{{#unless @last}}, {{/unless}}{{/foreach}}
-            </section>
-        </header>
+	        <section>
+	            {{content}}
+	        </section>
 
-        <section>
-            {{content}}
-        </section>
+	        <footer class="o-grid">
+	        {{#author}}
+	            <section class="o-layout c-author">
+		            {{#if image}}
+		            <figure class="o-grid__item o-layout__left c-author__photo u-1/4 u-1/6@md u-1/8@lg">
+		                <a href="{{url}}" class=" c-author__img"><img src="{{image}}" alt="{{name}}'s Picture"></a>
+		            </figure>
+		            {{/if}}
+					<div class="o-grid__item o-layout__left c-author__details u-3/4 u-5/6@md4 u-7/8@lg">
+		                <h4 class="c-author__name"><a href="{{url}}">{{name}}</a></h4>
 
-        <footer class="o-grid">
-        {{#author}}
-            <section class="o-layout c-author">
-	            {{#if image}}
-	            <figure class="o-grid__item o-layout__left c-author__photo u-1/4 u-1/6@md u-1/8@lg">
-	                <a href="{{url}}" class=" c-author__img"><img src="{{image}}" alt="{{name}}'s Picture"></a>
-	            </figure>
-	            {{/if}}
-				<div class="o-grid__item o-layout__left c-author__details u-3/4 u-5/6@md4 u-7/8@lg">
-	                <h4 class="c-author__name"><a href="{{url}}">{{name}}</a></h4>
+		                {{#if bio}}
+		                    <p class="c-author__bio">{{bio}}</p>
+		                {{/if}}
+					</div>
+	            </section>
 
-	                {{#if bio}}
-	                    <p class="c-author__bio">{{bio}}</p>
-	                {{/if}}
-				</div>
-            </section>
+	        {{/author}}
+	        </footer>
 
-        {{/author}}
-        </footer>
-
-    </article>
-</main>
-
-<!-- <aside>
-    {{#next_post}}
-    <a {{#if image}}style="background-image: url({{image}}"{{/if}} href="{{url}}">
-        <section>
-            <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
-        </section>
-    </a>
-    {{/next_post}}
-    {{#prev_post}}
-    <a {{#if image}}style="background-image: url({{image}})"{{/if}} href="{{url}}">
-        <section>
-            <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
-        </section>
-    </a>
-    {{/prev_post}}
-</aside> -->
+	    </article>
+	</main>
+</div>
 
 {{/post}}

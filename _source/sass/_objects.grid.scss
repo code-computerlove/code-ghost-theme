@@ -1,10 +1,15 @@
 .o-grid {
-	margin-left: -#{rem($d-gutter)};
+	@include breakpoints(post_float) {
+		margin-left: -#{rem($d-gutter)};
+	}
 }
 
+
 	.o-grid__item {
-		box-sizing: border-box;
-		padding-left: rem($d-gutter);
+		@include breakpoints(post_float) {
+			box-sizing: border-box;
+			padding-left: rem($d-gutter);
+		}
 	}
 
 	.o-grid__item--stacked {
