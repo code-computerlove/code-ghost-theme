@@ -9,3 +9,11 @@ h6 {
 	font-weight: get-weight(normal);
 	margin: rem($d-gutter*2) 0 rem($d-gutter) 0;
 }
+
+@each $level, $size in $f-scale {
+	$base: get-rem-size(sm);
+
+	#{$level} {
+		font-size: rem($base*$size);
+	}
+}
