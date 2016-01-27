@@ -1,14 +1,16 @@
-$d-cl: 32px;
-
 .c-header {
+	@include clearfix;
 	background-color: get-color(header-bg);
-	padding-bottom: rem($d-gutter);
-	padding-top: rem($d-gutter);
 }
 
 	.c-header__cl {
-		height: rem($d-cl);
+		height: rem($d-cl-logo-height);
 		padding-right: rem($d-gutter);
+	}
+
+	.c-header__link {
+		display: block;
+		margin: rem($d-gutter) 0;
 	}
 
 	.c-header__path {
@@ -17,6 +19,6 @@ $d-cl: 32px;
 
 	.c-header__title {
 		border-left: 2px solid get-color(header-text);
-		height: rem($d-cl);
+		height: rem($d-cl-logo-height);
 		padding-left: rem($d-gutter);
 	}

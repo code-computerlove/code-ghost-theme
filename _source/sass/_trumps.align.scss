@@ -3,5 +3,7 @@
 }
 
 .u-right {
-	text-align: right;
+	@include breakpoints(sm) {
+		text-align: right;
+	}
 }
