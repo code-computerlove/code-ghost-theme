@@ -22,16 +22,27 @@ $styleguide-colors: (black, code-aubergine, code-blue, code-grey, code-mint, cod
 		$value: map-get($colors, $color);
 
 		&:after {
-			color: get-color(styleguide-color-text, lighten, 65%);
+			color: get-color(styleguide-alt-text, lighten, 65%);
 			content: '#{$value}';
 			display: block;
 		}
 
 		&:before {
 			background-color: $value;
-			@if $color == white {
-				box-shadow: 0 0 0 1px get-color(styleguide-color-text, lighten, 80%);
+			@if $color == white { // scss-lint:disable ColorKeyword, ColorVariable
+				box-shadow: 0 0 0 1px get-color(styleguide-alt-text, lighten, 80%);
 			}
 		}
+	}
+}
+
+@each $level, $size in $f-scale {
+	$base: get-rem-size(sm);
+
+	.c-styleguide__heading--#{$level}:after {
+		color: get-color(styleguide-alt-text, lighten, 65%);
+		content: ' (#{rem($base*$size)})';
+		font-family: $f-family;
+		font-size: rem(get-rem-size(sm));
 	}
 }
