@@ -1,8 +1,8 @@
-<nav class="c-nav o-layout__right@sm">
+<nav class="c-nav">
 	<button class="c-nav__btn" aria-hidden>
 		<svg viewBox="0 0 24 32"><path d="M23 17H1c-.55 0-1-.45-1-1s.45-1 1-1h22c.55 0 1 .45 1 1s-.45 1-1 1zm0-7H1c-.55 0-1-.45-1-1s.45-1 1-1h22c.55 0 1 .45 1 1s-.45 1-1 1zm0 14H1c-.55 0-1-.45-1-1s.45-1 1-1h22c.55 0 1 .45 1 1s-.45 1-1 1z" class="c-header__path"/></svg>
 	</button>
-	<ul class="c-nav__list o-list-naked u-right@sm">
+	<ul class="c-nav__list o-list-naked o-layout">
 		{{#foreach navigation}}
 			<li class="c-nav__item{{#if current}} is-current{{/if}}"><a class="c-nav__link" href="{{url absolute="true"}}">{{label}}</a></li>
 		{{/foreach}}
