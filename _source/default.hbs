@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+
 		<title>{{meta_title}}</title>
+
 		<meta name="description" content="{{meta_description}}" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/main.css" inline />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'has-js');</script>
+
+		<link rel="stylesheet" type="text/css" href="/assets/css/main.css" inline />
 		{{ghost_head}}
 	</head>
 	<body class="{{body_class}}">
