@@ -9,8 +9,9 @@
 	}
 
 	.c-header__link {
-		display: inline-block;
+		display: block;
 		margin: rem($d-gutter) 0;
+		width: rem($d-cl-logo-width + $d-cl-text-width + ($d-gutter * 2) + 2px);
 	}
 
 	.c-header__path {
@@ -18,7 +19,7 @@
 	}
 
 	.c-header__title {
-		border-left: 2px solid get-color(header-text);
+		border-left: rem(2px) solid get-color(header-text);
 		height: rem($d-cl-logo-height);
 		padding-left: rem($d-gutter);
 	}

@@ -9,7 +9,7 @@ $color-nav-bg: get-color(nav-bg, darken, 10%);
 		display: none;
 
 		.has-js & {
-			background-color: transparent;
+			background-color: get-color(header-bg);
 			border: 0;
 			box-sizing: content-box;
 			cursor: pointer;
@@ -54,6 +54,7 @@ $color-nav-bg: get-color(nav-bg, darken, 10%);
 		background-color: $color-nav-bg;
 		color: get-color(nav-text);
 		display: block;
+		line-height: 0.9;
 		padding: rem($d-gutter);
 		text-decoration: none;
 		transition: background-color 0.25s;
