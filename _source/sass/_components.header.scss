@@ -4,8 +4,11 @@
 }
 
 	.c-header__cl {
+		border-right: rem(2px) solid get-color(header-text);
 		height: rem($d-cl-logo-height);
+		margin-right: rem($d-gutter);
 		padding-right: rem($d-gutter);
+		width: rem($d-cl-logo-width);
 	}
 
 	.c-header__link {
@@ -19,7 +22,6 @@
 	}
 
 	.c-header__title {
-		border-left: rem(2px) solid get-color(header-text);
 		height: rem($d-cl-logo-height);
-		padding-left: rem($d-gutter);
+		width: rem($d-cl-text-width);
 	}

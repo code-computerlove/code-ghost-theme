@@ -7,6 +7,7 @@
 
 		var _self = this;
 
+		var $body = document.body;
 		var $nav_btn = document.querySelector('[data-nav-btn]');
 		var $nav_links = document.querySelectorAll('[data-nav-link]');
 		var $nav_list = document.querySelector('[data-nav-list]');
@@ -16,6 +17,7 @@
 		function init(){
 			$nav_btn.addEventListener('click', showNav);
 			$nav_btn.addEventListener('focus', showNav);
+			$body.addEventListener('click', hideNav);
 			$nav_btn.addEventListener('blur', hideNav);
 
 			Array.prototype.forEach.call($nav_links, function(el, i){
@@ -49,6 +51,8 @@
 		}
 
 		function showNav(e, className) {
+			e.stopPropagation();
+
 			if(!hasClass($nav_btn, classActive)) {
 				addClass($nav_btn, classActive);
 			}
@@ -59,6 +63,8 @@
 		}
 
 		function hideNav(e, className) {
+			e.stopPropagation();
+			
 			removeClass($nav_btn, classActive);
 			removeClass($nav_list, classActive);
 		}
