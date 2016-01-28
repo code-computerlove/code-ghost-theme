@@ -26,7 +26,8 @@ $color-nav-bg: get-color(nav-bg, darken, 10%);
 				background-color: $color-nav-bg;
 			}
 
-			&:focus {
+			&:focus,
+			&.is-active {
 				background-color: $color-nav-bg;
 				box-shadow: inset 0 -1px 0 0 get-color(nav-bg);
 				outline: none;
@@ -59,8 +60,10 @@ $color-nav-bg: get-color(nav-bg, darken, 10%);
 		text-decoration: none;
 		transition: background-color 0.25s;
 
+		&:focus,
 		&:hover {
 			background-color: get-color(nav-bg, darken, 20%);
+			outline: 0;
 		}
 	}
 
@@ -69,12 +72,16 @@ $color-nav-bg: get-color(nav-bg, darken, 10%);
 
 		.has-js & {
 			left: -1000%;
+			opacity: 0;
 			position: absolute;
+			transition: opacity 0.25s;
 		}
 	}
 
-	.has-js .c-nav__btn:focus + .c-nav__list {
+	.has-js .c-nav__btn:focus + .c-nav__list,
+	.has-js .c-nav__list.is-active {
 		left: auto;
+		opacity: 1;
 		position: relative;
 
 		@include respond-min(sm) {
