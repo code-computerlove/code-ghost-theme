@@ -13,12 +13,16 @@
 		var $nav_list = document.querySelector('[data-nav-list]');
 
 		var classActive = 'is-active';
+		var justFocussed = false;
 
 		function init(){
+			var attachFastClick = Origami.fastclick;
+			attachFastClick(document.body);
+
 			$nav_btn.addEventListener('click', showNav);
 			$nav_btn.addEventListener('focus', showNav);
-			$body.addEventListener('click', hideNav);
 			$nav_btn.addEventListener('blur', hideNav);
+			$body.addEventListener('click', hideNav);
 
 			Array.prototype.forEach.call($nav_links, function(el, i){
 				el.addEventListener('focus', showNav);
@@ -42,6 +46,13 @@
 			}
 		}
 
+		function hideNav(e) {
+			e.stopPropagation();
+
+			removeClass($nav_btn, classActive);
+			removeClass($nav_list, classActive);
+		}
+
 		function removeClass(el, className) {
 			if (el.classList) {
 				el.classList.remove(className);
@@ -50,7 +61,7 @@
 			}
 		}
 
-		function showNav(e, className) {
+		function showNav(e) {
 			e.stopPropagation();
 
 			if(!hasClass($nav_btn, classActive)) {
@@ -60,13 +71,6 @@
 			if(!hasClass($nav_list, classActive)) {
 				addClass($nav_list, classActive);
 			}
-		}
-
-		function hideNav(e, className) {
-			e.stopPropagation();
-			
-			removeClass($nav_btn, classActive);
-			removeClass($nav_list, classActive);
 		}
 
 		init();

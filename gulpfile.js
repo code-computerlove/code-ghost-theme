@@ -208,20 +208,20 @@ gulp.task('sass:prod', function () {
 \* ============================================================ */
 
 gulp.task('scripts:dev', function () {
-	gulp.src(paths.src.js + '/*.js')
+	gulp.src([paths.src.js + '/vendor/*.js', paths.src.js + '/*.js'])
 		.pipe(plugins.concat(config.js_main))
 		.pipe(gulp.dest(paths.dest.js))
 		.pipe(plugins.livereload());
 });
 
 gulp.task('scripts:init', function () {
-	gulp.src(paths.src.js + '/*.js')
+	gulp.src([paths.src.js + '/vendor/*.js', paths.src.js + '/*.js'])
 		.pipe(plugins.concat(config.js_main))
 		.pipe(gulp.dest(paths.dest.js));
 });
 
 gulp.task('scripts:prod', function () {
-	return gulp.src(paths.src.js + '/*.js')
+	return gulp.src([paths.src.js + '/vendor/*.js', paths.src.js + '/*.js'])
 		.pipe(plugins.concat(config.js_main))
 		.pipe(plugins.uglify())
 		.pipe(gulp.dest(paths.dest.js));
