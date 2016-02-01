@@ -1,0 +1,9 @@
+{{!< default}}
+<div class="o-wrapper">
+	<h1>{{author.name}}</h1>
+	{{#if author.bio}}
+	<p>{{author.bio}}</p>
+	{{/if}}
+	<hr>
+	{{> "loop"}}
+</div>
