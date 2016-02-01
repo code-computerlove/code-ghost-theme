@@ -2,11 +2,15 @@
 
 {{#post}}
 {{#if image}}
-<div class="c-banner" style="background-image: url({{image}});">
-	<div class="c-banner__image o-wrapper">
-
-	</div>
+<div class="c-banner">
+	<div class="c-banner__image o-wrapper"></div>
 </div>
+<style>
+	.c-banner { background-image: url({{image}}?size=sm); }
+	@media screen and (min-width: 30.0625em) { .c-banner { background-image: url({{image}}?size=md); } }
+	@media screen and (min-width: 50em) { .c-banner { background-image: url({{image}}?size=lg); } }
+	@media screen and (min-width: 75em) { .c-banner { background-image: url({{image}}?size=xl); } }
+</style>
 {{/if}}
 <div class="o-wrapper">
 	<main role="main">

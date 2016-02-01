@@ -1,5 +1,15 @@
 {{!< default}}
-
+{{#if @blog.cover}}
+<div class="c-banner">
+	<div class="c-banner__image o-wrapper"></div>
+</div>
+<style>
+	.c-banner { background-image: url({{@blog.cover}}?size=sm); }
+	@media screen and (min-width: 30.0625em) { .c-banner { background-image: url({{@blog.cover}}?size=md); } }
+	@media screen and (min-width: 50em) { .c-banner { background-image: url({{@blog.cover}}?size=lg); } }
+	@media screen and (min-width: 75em) { .c-banner { background-image: url({{@blog.cover}}?size=xl); } }
+</style>
+{{/if}}
 <div class="o-wrapper">
 	{{> "loop"}}
 </div>
