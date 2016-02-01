@@ -1,5 +1,9 @@
 {{!< default}}
-
+{{#if @blog.cover}}
+<div class="c-banner" style="background-image: url({{@blog.cover}});">
+	<div class="c-banner__image o-wrapper"></div>
+</div>
+{{/if}}
 <div class="o-wrapper">
 	{{> "loop"}}
 </div>
