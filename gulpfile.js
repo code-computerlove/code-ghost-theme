@@ -256,6 +256,7 @@ gulp.task('watch', function () {
 	gulp.watch([paths.dest.html + '/**/*.hbs']).on('change', plugins.livereload.changed);
 });
 
+gulp.task('default', ['dev', 'watch']);
 gulp.task('dev', ['sass:init', 'scripts:lint', 'scripts:init', 'images', 'html:dev']);
 gulp.task('prod', ['sass:prod', 'scripts:lint', 'scripts:prod', 'images', 'html:prod']);
 
