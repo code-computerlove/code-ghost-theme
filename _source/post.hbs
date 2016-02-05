@@ -2,11 +2,23 @@
 
 {{#post}}
 {{#if image}}
-<div class="c-banner" style="background-image: url({{image}});">
-	<div class="c-banner__image o-wrapper">
-
-	</div>
+<div class="c-banner">
+	<div class="c-banner__image o-wrapper"></div>
 </div>
+<!-- @if NODE_ENV='dev' --><style>
+	.c-banner { background-image: url({{image}}); }
+</style><!-- @endif -->
+<!-- @if NODE_ENV='prod' --><style>
+	.c-banner { background-image: url(/resized/xs{{image}}); }
+	@media screen and (min-width: 20.0625em) { .c-banner { background-image: url(/resized/sm{{image}}); } }
+	@media screen and (min-width: 20.0625em) and (min-resolution: 144dpi), screen and (min-width: 20.0625em) and (min-device-pixel-ratio: 1.5) { .c-banner { background-image: url(/resized/sm@2x{{image}}); } }
+	@media screen and (min-width: 30.0625em) { .c-banner { background-image: url(/resized/md{{image}}); } }
+	@media screen and (min-width: 30.0625em) and (min-resolution: 144dpi), screen and (min-width: 30.0625em) and (min-device-pixel-ratio: 1.5) { .c-banner { background-image: url(/resized/md@2x{{image}}); } }
+	@media screen and (min-width: 48.0625em) { .c-banner { background-image: url(/resized/lg{{image}}); } }
+	@media screen and (min-width: 48.0625em) and (min-resolution: 144dpi), screen and (min-width: 48.0625em) and (min-device-pixel-ratio: 1.5) { .c-banner { background-image: url(/resized/lg@2x{{image}}); } }
+	@media screen and (min-width: 64.0625em) { .c-banner { background-image: url(/resized/xl{{image}}); } }
+	@media screen and (min-width: 64.0625em) and (min-resolution: 144dpi), screen and (min-width: 64.0625em) and (min-device-pixel-ratio: 1.5) { .c-banner { background-image: url(/resized/xl@2x{{image}}); } }
+</style><!-- @endif -->
 {{/if}}
 <div class="o-wrapper">
 	<main role="main">
@@ -29,7 +41,7 @@
 	            <section class="o-grid">
 		            {{#if image}}
 		            <figure class="o-grid__item o-layout__left c-author__photo u-1/4 u-1/6@md u-1/8@lg">
-		                <a href="{{url}}" class=" c-author__img"><img src="{{image}}" alt="{{name}}'s Picture"></a>
+		                <a href="{{url}}" class=" c-author__img"><!-- @if NODE_ENV='dev' --><img src="{{image}}" alt="{{name}}'s Picture"><!-- @endif --><!-- @if NODE_ENV='prod' --><img src="/resized/sq/md{{image}}" alt="{{name}}'s Picture"><!-- @endif --></a>
 		            </figure>
 		            {{/if}}
 					<div class="o-grid__item o-layout__left c-author__details u-3/4 u-5/6@md4 u-7/8@lg">

@@ -145,11 +145,13 @@ var sassReporter = function(file, stream) {
 
 gulp.task('html:dev', function () {
 	return gulp.src([paths.src.html + '/**/*.hbs', paths.src.html + '/*.json'])
+		.pipe(plugins.preprocess({context: { NODE_ENV: 'dev'}}))
 		.pipe(gulp.dest(paths.dest.html));
 });
 
 gulp.task('html:prod', ['sass:prod'], function () {
 	return gulp.src([paths.src.html + '/**/*.hbs', paths.src.html + '/*.json'])
+		.pipe(plugins.preprocess({context: { NODE_ENV: 'prod'}}))
 		.pipe(plugins.inlineSource({rootpath: paths.dest.html}))
 		.pipe(gulp.dest(paths.dest.html));
 });
