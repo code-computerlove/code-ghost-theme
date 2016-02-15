@@ -74,12 +74,13 @@ module.exports = function(gulp, config, tasks) {
 	});
 
 	gulp.task('watch:scripts', function () {
-		if(!config.isProd) {
-			gulp.watch([config.paths.src.sass  +  '/**/*.scss'], ['scripts', 'scripts:lint']);
-		}
+		gulp.watch([config.paths.src.sass  +  '/**/*.scss'], ['scripts', 'scripts:lint']);
 	});
 
 	tasks.default.push('scripts');
-	tasks.watch.push('watch:scripts');
+
+	if(!config.isProd) {
+		tasks.watch.push('watch:scripts');
+	}
 
 };

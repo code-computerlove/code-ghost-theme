@@ -21,7 +21,7 @@ config.dirs			= require('./project_config/dirs.json');
 config.files 		= require('./project_config/files.json');
 config.paths 		= require('./project_config/paths.js')(config);
 
-config.isProd 		= argv.prod;
+config.isProd 		= argv.prod || false;
 
 
 /* ============================================================ *\

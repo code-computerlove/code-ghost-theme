@@ -23,13 +23,14 @@ module.exports = function(gulp, config, tasks) {
 	});
 
 	gulp.task('watch:html', function () {
-		if(!config.isProd) {
-			gulp.watch([config.paths.src.html + '/**/*.hbs'], ['html:dev']);
-			gulp.watch([config.paths.dest.html + '/**/*.hbs']).on('change', livereload.changed);
-		}
+		gulp.watch([config.paths.src.html + '/**/*.hbs'], ['html:dev']);
+		gulp.watch([config.paths.dest.html + '/**/*.hbs']).on('change', livereload.changed);
 	});
 
 	tasks.default.push('html');
-	tasks.watch.push('watch:html');
+
+	if(!config.isProd) {
+		tasks.watch.push('watch:html');
+	}
 
 };
