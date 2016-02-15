@@ -86,12 +86,13 @@ module.exports = function(gulp, config, tasks) {
 	});
 
 	gulp.task('watch:sass', function () {
-		if(!config.isProd) {
-			gulp.watch([config.paths.src.sass  +  '/**/*.scss'], ['sass', 'sass:lint']);
-		}
+		gulp.watch([config.paths.src.sass  +  '/**/*.scss'], ['sass', 'sass:lint']);
 	});
 
 	tasks.default.push('sass');
-	tasks.watch.push('watch:sass');
+
+	if(!config.isProd) {
+		tasks.watch.push('watch:sass');
+	}
 
 };

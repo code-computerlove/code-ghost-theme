@@ -21,7 +21,7 @@ config.dirs			= require('./project_config/dirs.json');
 config.files 		= require('./project_config/files.json');
 config.paths 		= require('./project_config/paths.js')(config);
 
-config.isProd 		= argv.prod;
+config.isProd 		= argv.prod || false;
 
 
 /* ============================================================ *\
@@ -46,3 +46,5 @@ require('./project_tasks/scripts.js')(gulp, config, tasks);
 
 gulp.task('watch', tasks.watch);
 gulp.task('default', tasks.default.concat(tasks.watch));
+
+console.log(config.isProd, tasks);
