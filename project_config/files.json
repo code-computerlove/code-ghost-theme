@@ -1,0 +1,6 @@
+{
+	"js_main": "main.js",
+	"package": "code-ghost-theme.zip",
+	"sass_main": "main.scss",
+	"sass_styleguide": "styleguide.scss"
+}

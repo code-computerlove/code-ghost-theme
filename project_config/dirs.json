@@ -1,0 +1,9 @@
+{
+	"dest": "_dest",
+	"css": "css",
+	"img": "images",
+	"js": "js",
+	"root": ".",
+	"sass": "sass",
+	"src": "_source"
+}
