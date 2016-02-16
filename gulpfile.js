@@ -46,5 +46,3 @@ require('./project_tasks/scripts.js')(gulp, config, tasks);
 
 gulp.task('watch', tasks.watch);
 gulp.task('default', tasks.default.concat(tasks.watch));
-
-console.log(config.isProd, tasks);
