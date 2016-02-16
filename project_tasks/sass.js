@@ -14,6 +14,7 @@ var autoprefixer	= require('gulp-autoprefixer');
 var minifyCss		= require('gulp-minify-css');
 var sass			= require('gulp-sass');
 var scssLint		= require('gulp-scss-lint');
+var sourcemaps 		= require('gulp-sourcemaps');
 
 var minifyCssOpts = {
 	advanced: false,
@@ -73,9 +74,11 @@ module.exports = function(gulp, config, tasks) {
 	gulp.task('sass', function () {
 
 		gulp.src(sass_files)
+			.pipe(gif(!config.isProd, sourcemaps.init()))
 			.pipe(sass({errLogToConsole: true, includePaths: [config.paths.src.sass_includes], outputStyle: 'compact'}).on('error', sass.logError))
 			.pipe(autoprefixer({browsers: ['> 5%']}))
 			.pipe(gif(config.isProd, minifyCss(minifyCssOpts)))
+  			.pipe(gif(!config.isProd, sourcemaps.write('./')))
 			.pipe(gulp.dest(config.paths.dest.css))
 			.pipe(gif(config.isWatched, livereload()));
 	});
