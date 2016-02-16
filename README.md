@@ -34,18 +34,36 @@ npm install
 
 ##2. Gulp
 
-In  `Gulpfile.js`, all project paths are set via the `config` and `paths` variables.
+In  `Gulpfile.js`,  config and tasks have been abstracted into their own files, for clarity and modularity. All project directories and paths are set in their own files, and accessed via the `config` variable.
+
 When making alterations use existing variables (or create new ones when necessary) rather than entering a static path.
 
-Development tasks pipe the event to [gulp-livereload](https://github.com/vohof/gulp-livereload) (with the livereload script included in the page locally, preferably using the [LiveReload extension](http://livereload.com/extensions/)).
+There are two flags which can be passed through to gulp tasks:
 
-The gulp file has five tasks:
+* `--watch` - Enables watch tasks and livereload
+* `--prod` - Enables minification, concatenation, inlining etc.
 
-* `dev` - Development task that compiles and lints all styles, scripts whilst also copying across images. The compiled files are located in `_dest` folder.
-* `watch` - Watch task that watches for changes in CSS / JS / HBS files for changes and recompiles and reloads the page.
-* `default` - Used by running just `gulp`, this runs the `dev` task followed by the `watch` task - primed for local development.
-* `prod` - Production task that is similar to the `dev` task with tweaks for production (concatenates, minifies and inlines inlining CSS/JS files etc). This is run on the CI server and shouldn't need to be used locally unless you're testing.
-* `package` - Runs the `prod` task and then zips up the `_dest` folder ready for deployment.
+Watch tasks pipe the event to [gulp-livereload](https://github.com/vohof/gulp-livereload) (with the livereload script included in the page locally, preferably using the [LiveReload extension](http://livereload.com/extensions/)).
+
+The gulp file has three tasks:
+
+* `default` - Used by running just `gulp`, this runs the development tasks. Add the `--watch` flag for livereload, or `--prod` for production compiles.
+* `package` - Runs the `default` task and then zips up the `_dest` folder ready for deployment. The `--prod` flag must be used if you want a production ready package.
+* `watch` - Watches for changes in CSS / JS / HBS files for changes and recompiles and reloads the page.
+
+###2.1 Adding tasks
+
+Each task has it's own file, which pushes tasks into an array stored in the main `gulpfile.js`. Watch tasks should be wrapped in a conditional.
+
+```
+tasks.default.push('sass');
+
+if(config.isWatched) {
+	tasks.watch.push('watch:sass');
+}
+```
+
+
 
 ##3. Styles
 
