@@ -8,7 +8,6 @@
 
 var argv			= require('yargs').argv;
 var gulp 			= require('gulp');
-var livereload		= require('gulp-livereload');
 
 
 /* ============================================================ *\
