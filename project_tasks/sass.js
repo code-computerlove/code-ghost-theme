@@ -71,12 +71,13 @@ module.exports = function(gulp, config, tasks) {
 	var sass_files = [config.paths.src.sass_main, config.paths.src.sass_styleguide];
 
 	gulp.task('sass', function () {
+
 		gulp.src(sass_files)
 			.pipe(sass({errLogToConsole: true, includePaths: [config.paths.src.sass_includes], outputStyle: 'compact'}).on('error', sass.logError))
 			.pipe(autoprefixer({browsers: ['> 5%']}))
 			.pipe(gif(config.isProd, minifyCss(minifyCssOpts)))
 			.pipe(gulp.dest(config.paths.dest.css))
-			.pipe(gif(!config.isProd, livereload()));
+			.pipe(gif(config.isWatched, livereload()));
 	});
 
 	gulp.task('sass:lint', function () {
@@ -91,7 +92,7 @@ module.exports = function(gulp, config, tasks) {
 
 	tasks.default.push('sass');
 
-	if(!config.isProd) {
+	if(config.isWatched) {
 		tasks.watch.push('watch:sass');
 	}
 

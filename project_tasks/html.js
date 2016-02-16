@@ -29,7 +29,7 @@ module.exports = function(gulp, config, tasks) {
 
 	tasks.default.push('html');
 
-	if(!config.isProd) {
+	if(config.isWatched) {
 		tasks.watch.push('watch:html');
 	}
 

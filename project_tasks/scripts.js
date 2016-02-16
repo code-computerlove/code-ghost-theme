@@ -64,7 +64,7 @@ module.exports = function(gulp, config, tasks) {
 			.pipe(concat(config.files.js_main))
 			.pipe(gif(config.isProd, uglify()))
 			.pipe(gulp.dest(config.paths.dest.js))
-			.pipe(gif(!config.isProd, livereload()));
+			.pipe(gif(config.isWatched, livereload()));
 	});
 
 	gulp.task('scripts:lint', function() {
@@ -79,7 +79,7 @@ module.exports = function(gulp, config, tasks) {
 
 	tasks.default.push('scripts');
 
-	if(!config.isProd) {
+	if(config.isWatched) {
 		tasks.watch.push('watch:scripts');
 	}
 

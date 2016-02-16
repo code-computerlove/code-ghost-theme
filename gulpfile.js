@@ -21,6 +21,7 @@ config.files 		= require('./project_config/files.json');
 config.paths 		= require('./project_config/paths.js')(config);
 
 config.isProd 		= argv.prod || false;
+config.isWatched	= argv.watch || false;
 
 
 /* ============================================================ *\
