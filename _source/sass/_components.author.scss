@@ -26,7 +26,15 @@
 	}
 
 	.c-author__link {
+		border-bottom: 1px solid get-color(link-border, lighten, 75%);
+		color: get-color(body-text);
 		margin: 0;
+		text-decoration: none;
+		transition: border-bottom-color 0.25s;
+
+		&:hover {
+			border-bottom-color: get-color(link-hover-border);
+		}
 	}
 
 	.c-author__name {
