@@ -23,7 +23,7 @@ module.exports = function(gulp, config, tasks) {
 	});
 
 	gulp.task('watch:html', function () {
-		gulp.watch([config.paths.src.html + '/**/*.hbs'], ['html:dev']);
+		gulp.watch([config.paths.src.html + '/**/*.hbs'], ['html']);
 		gulp.watch([config.paths.dest.html + '/**/*.hbs']).on('change', livereload.changed);
 	});
 
