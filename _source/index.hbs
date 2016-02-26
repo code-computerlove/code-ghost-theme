@@ -1,22 +1,8 @@
 {{!< default}}
 {{#if @blog.cover}}
-<div class="c-banner">
+<div class="c-banner" style="background-image: url({{@blog.cover}});">
 	<div class="c-banner__image o-wrapper"></div>
 </div>
-<!-- @if NODE_ENV='dev' --><style>
-	.c-banner { background-image: url({{@blog.cover}}); }
-</style><!-- @endif -->
-<!-- @if NODE_ENV='prod' --><style>
-	.c-banner { background-image: url(/resized/xs{{@blog.cover}}); }
-	@media screen and (min-width: 20.0625em) { .c-banner { background-image: url(/resized/sm{{@blog.cover}}); } }
-	@media screen and (min-width: 20.0625em) and (min-resolution: 144dpi), screen and (min-width: 20.0625em) and (min-device-pixel-ratio: 1.5) { .c-banner { background-image: url(/resized/sm@2x{{@blog.cover}}); } }
-	@media screen and (min-width: 30.0625em) { .c-banner { background-image: url(/resized/md{{@blog.cover}}); } }
-	@media screen and (min-width: 30.0625em) and (min-resolution: 144dpi), screen and (min-width: 30.0625em) and (min-device-pixel-ratio: 1.5) { .c-banner { background-image: url(/resized/md@2x{{@blog.cover}}); } }
-	@media screen and (min-width: 48.0625em) { .c-banner { background-image: url(/resized/lg{{@blog.cover}}); } }
-	@media screen and (min-width: 48.0625em) and (min-resolution: 144dpi), screen and (min-width: 48.0625em) and (min-device-pixel-ratio: 1.5) { .c-banner { background-image: url(/resized/lg@2x{{@blog.cover}}); } }
-	@media screen and (min-width: 64.0625em) { .c-banner { background-image: url(/resized/xl{{@blog.cover}}); } }
-	@media screen and (min-width: 64.0625em) and (min-resolution: 144dpi), screen and (min-width: 64.0625em) and (min-device-pixel-ratio: 1.5) { .c-banner { background-image: url(/resized/xl@2x{{@blog.cover}}); } }
-</style><!-- @endif -->
 {{/if}}
 <div class="o-wrapper">
 	{{> "loop"}}
