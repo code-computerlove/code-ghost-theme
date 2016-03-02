@@ -1,6 +1,11 @@
 .c-header {
 	@include clearfix;
 	background-color: get-color(header-bg);
+	min-height: 150px;
+
+	@include respond-min(md) {
+		min-height: 300px;
+	}
 }
 
 	.c-header__cl {

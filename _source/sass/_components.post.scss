@@ -1,20 +1,15 @@
 .c-post {
-	margin-bottom: rem(get-rem-size(sm)*2);
-	margin-top: rem(get-rem-size(sm)*2);
+	margin-bottom: rem(get-rem-size(sm) * 2);
 }
 
 	.c-post__image {
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
-		padding-top: 3/4*100%;
+		height: 175px;
 
-		@include respond-min(sm) {
-			padding-top: 9/16*100%;
-		}
-
-		@include respond-min(post_float) {
-			padding-top: 7/8*100%;
+		@include respond-min(lg) {
+			height: 350px;
 		}
 	}
 
@@ -24,4 +19,9 @@
 		@include respond-min(post_float) {
 			margin-top: 0;
 		}
+	}
+
+	.c-post__content {
+		background: get-color(content-bg);
+		padding: rem(15px);
 	}

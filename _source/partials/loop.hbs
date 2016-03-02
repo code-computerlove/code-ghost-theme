@@ -1,28 +1,61 @@
 {{! This is the post loop - each post will be output using this markup }}
+
+{{! First loop to get the featured posts}}
 {{#foreach posts}}
-<article class="c-post{{#if image}} o-layout@post_float o-grid@post_float{{/if}}">
-	{{#if image}}
-	<div class="o-layout__left@post_float o-grid__item@post_float u-1/3@post_float">
-		<div class="c-post__image c-post__image--{{id}}" style="background-image: url({{@image}});"></div>
-	</div>
-	{{/if}}
-	<div{{#if image}} class="o-layout__left@post_float o-grid__item@post_float u-2/3@post_float"{{/if}}>
-		<header>
-			<h2 class="c-post__title"><a href="{{url}}">{{{title}}}</a></h2>
-		</header>
-		<section>
-			<p>{{excerpt words="26"}}&hellip;</p>
-		</section>
-		<footer class="c-author--brief">
-			{{#if author.image}}
+	{{#if featured}}
+	<article class="c-post{{#if image}} o-layout@post_float o-grid@post_float{{/if}}">
+		{{#if image}}
+		<div class="o-layout__left@post_float o-grid__item@post_float u-2/3@post_float">
+			<div class="c-post__image c-post__image--{{id}}" style="background-image: url({{@image}});"></div>
+		</div>
+		{{/if}}
+		<div class="c-post__content o-layout__left@post_float o-grid__item@post_float u-1/3@post_float">
+			<div class="c-author--brief">
+				{{#if author.image}}
 				<span class=" c-author__img c-author__img--thumb"><img src="{{author.image}}" alt="{{author.name}}"></span>
-			{{/if}}
-			{{author}}
-			{{tags prefix=" on "}}
-			<time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-		</footer>
-	</div>
-</article>
+				{{/if}}
+				{{author}}
+				{{tags prefix=" on "}}
+				<time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+			</div>
+			<header>
+				<h2 class="c-post__title"><a href="{{url}}">{{{title}}}</a></h2>
+			</header>
+			<section>
+				<p>{{excerpt words="26"}}&hellip;</p>
+			</section>
+		</div>
+	</article>
+	{{/if}}
+{{/foreach}}
+
+{{! Second loop to get the normal posts}}
+{{#foreach posts}}
+ {{#unless featured}}
+	<article class="c-post o-layout__left@post_float o-grid__item@post_float u-1/3@post_float">
+		{{#if image}}
+		<div>
+			<div class="c-post__image c-post__image--{{id}}" style="background-image: url({{@image}});"></div>
+		</div>
+		{{/if}}
+		<div class="c-post__content">
+			<div class="c-author--brief">
+				{{#if author.image}}
+				<span class=" c-author__img c-author__img--thumb"><img src="{{author.image}}" alt="{{author.name}}"></span>
+				{{/if}}
+				{{author}}
+				{{tags prefix=" on "}}
+				<time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+			</div>
+			<header>
+				<h2 class="c-post__title"><a href="{{url}}">{{{title}}}</a></h2>
+			</header>
+			<section>
+				<p>{{excerpt words="26"}}&hellip;</p>
+			</section>
+		</div>
+	</article>
+	{{/unless}}
 {{/foreach}}
 
 {{! Previous/next page links - displayed on every page }}
