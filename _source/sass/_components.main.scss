@@ -1,7 +1,5 @@
 .c-main {
 	margin-top: rem(-50px);
-	max-width: 90%;
-	padding: 0;
 
 	@include respond-min(md) {
 		margin-top: rem(-150px);

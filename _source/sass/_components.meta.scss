@@ -9,6 +9,6 @@
 		transition: border-bottom-color 0.25s;
 
 		&:hover {
-			border-bottom-color: get-color(link-hover-border);
+			border-bottom-color: get-color(link-hover);
 		}
 	}

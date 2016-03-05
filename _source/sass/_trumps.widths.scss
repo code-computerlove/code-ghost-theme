@@ -49,7 +49,7 @@
 };
 
 @include respond-min(post_float) {
-	@include widths(2, '\\@post_float');
+	@include widths(2 3, '\\@post_float');
 };
 
 @include respond-min(post_float_wide) {

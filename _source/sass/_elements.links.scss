@@ -1,10 +1,10 @@
-a:not([class]) {
-	border-bottom: 1px solid get-color(link-border, lighten, 75%);
+a {
 	color: get-color(primary);
 	text-decoration: none;
-	transition: border-bottom-color 0.25s;
+	transition: all 0.25s ease;
 
 	&:hover {
-		border-bottom-color: get-color(link-hover-border);
+		border-bottom-color: get-color(link-hover);
+		color: get-color(link-hover);
 	}
 }

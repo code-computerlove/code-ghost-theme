@@ -6,10 +6,18 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+		height: rem(175px);
+
+		@include respond-min(lg) {
+			height: rem(275px);
+		}
+	}
+
+	.c-post__image--featured {
 		height: 175px;
 
 		@include respond-min(lg) {
-			height: 350px;
+			height: rem(400px);
 		}
 	}
 
@@ -24,4 +32,16 @@
 	.c-post__content {
 		background: get-color(content-bg);
 		padding: rem(15px);
+	}
+
+	.c-post__content--featured {
+		@include respond-min(post_float) {
+			min-height: rem(400px);
+		}
+	}
+
+	.c-post__link {
+		border-bottom: 2px solid get-color(primary);
+		font-size: rem(14px);
+		padding-bottom: 2px;
 	}

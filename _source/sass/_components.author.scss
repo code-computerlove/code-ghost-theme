@@ -5,7 +5,7 @@
 }
 
 .c-author--brief {
-	font-size: rem(get-rem-size(sm) * 0.75);
+	font-size: rem(12px);
 }
 
 	.c-author__bio {
@@ -33,7 +33,7 @@
 		transition: border-bottom-color 0.25s;
 
 		&:hover {
-			border-bottom-color: get-color(link-hover-border);
+			border-bottom-color: get-color(link-hover);
 		}
 	}
 
@@ -43,4 +43,8 @@
 
 	.c-author__photo {
 		margin: 0;
+	}
+
+	.c-author__tags {
+		text-transform: capitalize;
 	}

@@ -9,10 +9,6 @@ body {
 }
 
 html {
-	font-size: get-rem-size(sm);
+	font-size: 16px;
 	height: 100%;
-
-	@include respond-min(lg) {
-		font-size: get-rem-size(lg);
-	}
 }
