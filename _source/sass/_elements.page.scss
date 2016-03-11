@@ -1,10 +1,10 @@
 body {
 	background-color: get-color(body-bg);
-	color: get-color(body-text);
+	color: get-color(primary);
 	font-family: $f-family;
 	font-weight: get-weight(normal);
 	height: 100%;
-	line-height: 1.5;
+	line-height: 1.4;
 	margin: 0;
 }
 

@@ -5,7 +5,18 @@
 }
 
 .c-author--brief {
-	font-size: rem(12px);
+	font-family: $f-family;
+	font-size: rem(11px);
+	font-weight: get-weight(normal);
+	text-transform: uppercase;
+
+	a {
+		border-bottom: 1px solid get-color(primary);
+
+		&:hover {
+			border-color: get-color(link-hover);
+		}
+	}
 }
 
 	.c-author__bio {

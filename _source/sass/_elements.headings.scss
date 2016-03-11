@@ -6,7 +6,7 @@ h5,
 h6 {
 	color: get-color(heading-text);
 	font-family: $f-family-heading;
-	font-weight: get-weight(normal);
+	font-weight: get-weight(bold);
 	margin: rem($d-gutter*2) 0 rem($d-gutter) 0;
 }
 
