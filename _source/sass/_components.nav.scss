@@ -1,4 +1,4 @@
-$color-nav-bg: get-color(nav-bg, darken, 10%);
+$color-nav-bg: get-color(nav-bg);
 
 .c-nav {
 	margin-left: -#{rem($d-gutter)};
@@ -19,29 +19,34 @@ $color-nav-bg: get-color(nav-bg, darken, 10%);
 			position: absolute;
 			right: 0;
 			top: 0;
-			transition: background-color 0.25s;
-			width: rem($d-gutter*1.5);
+			transition: all 0.25s;
+			width: rem($d-gutter * 1.5);
 
 			&:hover {
 				background-color: $color-nav-bg;
+				fill: get-color(nav-hover);
 			}
 
 			&:focus,
 			&.is-active {
 				background-color: $color-nav-bg;
 				box-shadow: inset 0 -1px 0 0 get-color(nav-bg);
+				fill: get-color(nav-hover);
 				outline: none;
 			}
 		}
 	}
 
 	.c-nav__item {
+		border-bottom: 1px solid get-color(nav-bg, lighten, 20%);
+
 		.has-js  & + & {
+			border-bottom: get-color(nav-bg, lighten, 20%);
 			border-top: rem(1px) solid get-color(nav-bg);
 		}
 
 		.no-js & {
-			border-bottom: rem(1px) solid get-color(nav-bg);
+			border-bottom: get-color(nav-bg, lighten, 20%);
 			float: left;
 			width: 100%;
 
@@ -53,36 +58,41 @@ $color-nav-bg: get-color(nav-bg, darken, 10%);
 
 	.c-nav__link {
 		background-color: $color-nav-bg;
-		color: get-color(nav-text);
+		color: get-color(nav-hover);
 		display: block;
-		line-height: 0.9;
+		line-height: 1.6;
 		padding: rem($d-gutter);
 		text-decoration: none;
+		text-transform: uppercase;
 		transition: background-color 0.25s;
 
 		&:focus,
 		&:hover {
-			background-color: get-color(nav-bg, darken, 20%);
+			background-color: get-color(nav-active);
+			color: get-color(nav-hover);
 			outline: 0;
 		}
 	}
 
 	.c-nav__list {
 		background-color: $color-nav-bg;
+		text-align: center;
+		transition: all 1s ease;
+		width: 100%;
 
 		.has-js & {
-			left: -1000%;
 			opacity: 0;
 			position: absolute;
+			top: -1000%;
 			transition: opacity 0.25s;
 		}
 	}
 
 	.has-js .c-nav__btn:focus + .c-nav__list,
 	.has-js .c-nav__list.is-active {
-		left: auto;
 		opacity: 1;
 		position: relative;
+		top: 0;
 
 		@include respond-min(sm) {
 			left: auto;
