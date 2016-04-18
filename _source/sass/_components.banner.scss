@@ -6,9 +6,18 @@
 }
 
 	.c-banner__image {
-		padding-top: 4/5*100%;
+		padding-top: 4 / 5 * 100%;
 
 		@include respond-min(md) {
-			padding-top: 9/16*100%;
+			padding-top: 9 / 16 * 100%;
+		}
+	}
+
+	.c-banner__post {
+		margin-top: -78px;
+		max-height: rem(300px);
+
+		@include respond-min(md) {
+			margin-top: -153px;
 		}
 	}

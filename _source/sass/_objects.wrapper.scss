@@ -4,3 +4,10 @@
 	padding: 0 rem($d-gutter);
 	position: relative;
 }
+
+	.o-wrapper__post {
+		background-color: get-color(body-bg);
+		margin-top: -72px;
+		max-width: rem(700px);
+		padding: 1px rem(30px);
+	}

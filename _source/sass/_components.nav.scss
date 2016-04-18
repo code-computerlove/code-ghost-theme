@@ -15,7 +15,7 @@ $color-nav-bg: get-color(nav-bg);
 			cursor: pointer;
 			display: block;
 			height: rem($d-cl-logo-height);
-			padding: rem($d-gutter);
+			padding: rem($d-gutter + 4);
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -109,7 +109,7 @@ $color-nav-bg: get-color(nav-bg);
 			left: auto;
 			position: absolute;
 			right: 0;
-			top: rem($d-cl-logo-height + ($d-gutter * 2));
+			top: rem($d-cl-logo-height + ($d-gutter * 2.5));
 			z-index: 1;
 		};
 	}
