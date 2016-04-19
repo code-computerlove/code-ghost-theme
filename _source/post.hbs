@@ -12,10 +12,10 @@
 
 	        <header>
 	            <h1 class="post-title">{{title}}</h1>
-	            <section class="c-meta">
+	            <div class="c-meta">
 	                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
 					{{#foreach tags}}{{#if @first}} in {{/if}}<a href="{{url}}" title="{{name}}" class="c-meta__link">{{name}}</a>{{#unless @last}}, {{/unless}}{{/foreach}}
-	            </section>
+	            </div>
 	        </header>
 
 	        <section>
