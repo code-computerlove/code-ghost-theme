@@ -17,10 +17,8 @@
 		height: 0;
 		margin: rem(-15px) rem(-15px) rem(20px) rem(-15px);
 		padding-top: 50%;
-		width: calc(100% + 30px);
 
 		@include respond-min(post_float) {
-			width: calc(100% + 50px);
 			margin: rem(-25px) rem(-25px) rem(20px) rem(-25px);
 		}
 	}
