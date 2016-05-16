@@ -1,6 +1,19 @@
 .o-wrapper {
 	margin: 0 auto;
-	max-width: rem($d-width-max);
+	max-width: rem(1200px);
 	padding: 0 rem($d-gutter);
 	position: relative;
 }
+
+	.o-wrapper__post {
+		background-color: get-color(body-bg);
+		margin-top: rem(-72px);
+		max-width: rem(700px);
+		padding: 1px rem(30px);
+	}
+
+	.o-wrapper__tag {
+		background-color: get-color(body-bg);
+		margin-top: rem(-72px);
+		padding: 1px rem(30px);
+	}

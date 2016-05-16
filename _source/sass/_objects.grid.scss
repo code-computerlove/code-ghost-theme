@@ -1,4 +1,8 @@
 .o-grid {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 0;
+
 	@include breakpoints(post_float) {
 		margin-left: -#{rem($d-gutter)};
 	}
