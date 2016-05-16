@@ -14,10 +14,10 @@
 	}
 
 	.c-banner__post {
-		margin-top: -78px;
+		margin-top: rem(-78px);
 		max-height: rem(300px);
 
 		@include respond-min(md) {
-			margin-top: -153px;
+			margin-top: rem(-153px);
 		}
 	}

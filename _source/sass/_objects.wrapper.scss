@@ -7,13 +7,13 @@
 
 	.o-wrapper__post {
 		background-color: get-color(body-bg);
-		margin-top: -72px;
+		margin-top: rem(-72px);
 		max-width: rem(700px);
 		padding: 1px rem(30px);
 	}
 
 	.o-wrapper__tag {
 		background-color: get-color(body-bg);
-		margin-top: -72px;
+		margin-top: rem(-72px);
 		padding: 1px rem(30px);
 	}
