@@ -23,6 +23,7 @@ code {
 		border-left: rem(3px) solid get-color(blockquote-border, lighten, 75%);
 		border-radius: 0 rem($d-border-radius) rem($d-border-radius) 0;
 		display: block;
+		font-size: 75%;
 		padding: rem($d-gutter);
 	}
 }
