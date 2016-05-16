@@ -11,6 +11,15 @@
 		@include respond-min(md) {
 			padding-top: 9 / 16 * 100%;
 		}
+
+		@include respond-min(lg) {
+			height: rem(480px);
+			padding-top: 0;
+
+			.c-banner__post > & {
+				height: rem(300px);
+			}
+		}
 	}
 
 	.c-banner__post {
