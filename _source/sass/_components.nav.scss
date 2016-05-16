@@ -38,22 +38,14 @@ $color-nav-bg: get-color(nav-bg);
 	}
 
 	.c-nav__item {
-		border-bottom: 1px solid get-color(nav-bg, lighten, 20%);
 		float: none;
 
 		@include respond-min(post_float) {
 			border: 0;
-			border-right: 1px solid get-color(nav-bg, lighten, 20%);
 			float: left;
 		}
 
-		.has-js  & + & {
-			border-bottom: get-color(nav-bg, lighten, 20%);
-			border-top: rem(1px) solid get-color(nav-bg);
-		}
-
 		.no-js & {
-			border-bottom: get-color(nav-bg, lighten, 20%);
 			float: left;
 			width: 100%;
 
