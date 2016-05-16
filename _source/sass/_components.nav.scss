@@ -3,6 +3,10 @@ $color-nav-bg: get-color(nav-bg);
 .c-nav {
 	margin-left: -#{rem($d-gutter)};
 	margin-right: -#{rem($d-gutter)};
+
+	.no-js & {
+		margin-bottom: rem(95px);
+	}
 }
 
 	.c-nav__btn {
