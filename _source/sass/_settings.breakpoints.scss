@@ -1,21 +1,20 @@
-$breakpoints :(
+$breakpoints:(
 	sm: (
 		remSize: 16px,
 		width: 321px
 	),
 	md: (
-		remSize: 19px,
 		width: 481px
 	),
 	lg: (
-		remSize: 19px,
+		remSize: 18px,
 		width: 800px
 	),
 	xl: (
-		remSize: 24px,
 		width: 1200px
 	),
 
 	footer_float: 750px,
-	post_float: 750px
+	post_float: 750px,
+	post_float_wide: 1024px
 );

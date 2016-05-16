@@ -28,6 +28,8 @@
 				el.addEventListener('focus', showNav);
 				el.addEventListener('blur', hideNav);
 			});
+
+			fitvids();
 		}
 
 		function addClass(el, className) {

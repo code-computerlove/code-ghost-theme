@@ -1,27 +1,30 @@
 .c-header {
 	@include clearfix;
 	background-color: get-color(header-bg);
+	min-height: rem(150px);
+
+	@include respond-min(md) {
+		min-height: rem(225px);
+	}
 }
 
 	.c-header__cl {
 		border-right: rem(2px) solid get-color(header-text);
-		height: rem($d-cl-logo-height);
 		margin-right: rem($d-gutter);
 		padding-right: rem($d-gutter);
-		width: rem($d-cl-logo-width);
 	}
 
 	.c-header__link {
 		display: block;
 		margin: rem($d-gutter) 0;
-		width: rem($d-cl-logo-width + $d-cl-text-width + ($d-gutter * 2) + 2px);
 	}
 
-	.c-header__path {
-		fill: get-color(header-text);
+	.c-header__logo {
+		height: rem($d-cl-logo-height);
+		margin-top: 3px;
 	}
 
 	.c-header__title {
-		height: rem($d-cl-logo-height);
-		width: rem($d-cl-text-width);
+		margin: 2rem;
+		text-align: center;
 	}

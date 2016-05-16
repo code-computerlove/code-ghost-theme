@@ -1,0 +1,7 @@
+.c-main {
+	margin-top: rem(-50px);
+
+	@include respond-min(md) {
+		margin-top: rem(-75px);
+	}
+}

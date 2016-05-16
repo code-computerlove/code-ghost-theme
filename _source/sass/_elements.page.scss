@@ -1,25 +1,14 @@
 body {
-	color: get-color(body-text);
+	background-color: get-color(body-bg);
+	color: get-color(primary);
 	font-family: $f-family;
 	font-weight: get-weight(normal);
 	height: 100%;
-	line-height: 1.5;
+	line-height: 1.4;
 	margin: 0;
 }
 
 html {
-	font-size: get-rem-size(sm);
+	font-size: 16px;
 	height: 100%;
-
-	@include respond-min(md) {
-		font-size: get-rem-size(md);
-	}
-
-	@include respond-min(lg) {
-		font-size: get-rem-size(lg);
-	}
-
-	@include respond-min(xl) {
-		font-size: get-rem-size(xl);
-	}
 }

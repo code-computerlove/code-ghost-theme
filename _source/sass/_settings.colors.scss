@@ -1,11 +1,14 @@
 $colors: (
 	black: #333,
 	code-aubergine: #362634,
-	code-blue: #1f2040,
+	code-blue: #1f2041,
 	code-grey: #6b707d,
 	code-mint: #b5efba,
+	code-light-mint: #dff7da,
 	code-mustard: #fec260,
+	code-light-mustard: #fff7e6,
 	code-red: #ec4f51,
+	code-light-red: #fcdbdb,
 	white: #fff
 );
 
@@ -18,6 +21,7 @@ $color-uses: (
 	blockquote-bg: code-blue,
 	blockquote-border: code-aubergine,
 	body-text: code-grey,
+	body-bg: code-light-mustard,
 	border: code-grey,
 
 	code-bg: code-blue,
@@ -26,21 +30,25 @@ $color-uses: (
 	footer-bg: code-blue,
 	footer-text: code-red,
 
-	header-bg: code-red,
+	header-bg: code-light-red,
 	header-text: code-blue,
 	header-hover-text: black,
+
+	content-bg: white,
 
 	heading-text: code-blue,
 	hr: code-grey,
 
 	link-text: code-blue,
+	link-hover: code-red,
 	link-border: code-grey,
-	link-hover-border: code-red,
 
 	meta-text: code-grey,
 
-	nav-bg: code-red,
+	nav-active: code-red,
+	nav-bg: code-blue,
 	nav-text: code-blue,
+	nav-hover: white,
 
 	styleguide-alt-text: code-grey
 );

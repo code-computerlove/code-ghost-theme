@@ -1,14 +1,15 @@
-$f-family: sans-serif;
-$f-family-heading: Georgia, Times, Times New Roman, serif;
+$f-family: 'Source Sans Pro', sans-serif;
+$f-family-heading: 'Libre Baskerville', serif;
 
 $f-weights: (
-	bold: 600,
-	normal: 300
+	bolder: 900,
+	bold: 700,
+	normal: 400
 );
 
 $f-scale: (
 	h1: 2.441,
-	h2: 1.953,
+	h2: 1.8,
 	h3: 1.563,
 	h4: 1.25,
 	h5: 1,

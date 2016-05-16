@@ -1,14 +1,15 @@
 .c-meta {
-	color: get-color(meta-text, lighten, 50%);
-}
+	color: get-color(meta-text, lighten, 10%);
+	font-family: $f-family;
+	font-size: rem(13px);
+	font-weight: get-weight(normal);
+	text-transform: uppercase;
 
-	.c-meta__link {
-		border-bottom: 1px solid get-color(link-border, lighten, 75%);
-		color: get-color(meta-text, lighten, 50%);
-		text-decoration: none;
-		transition: border-bottom-color 0.25s;
+	a {
+		border-bottom: 1px solid get-color(primary);
 
 		&:hover {
-			border-bottom-color: get-color(link-hover-border);
+			border-color: get-color(link-hover);
 		}
 	}
+}
