@@ -8,23 +8,19 @@
 	.c-banner__image {
 		padding-top: 4 / 5 * 100%;
 
-		@include respond-min(md) {
+		@include respond-min(sm) {
 			padding-top: 9 / 16 * 100%;
 		}
 
 		@include respond-min(lg) {
 			height: rem(480px);
 			padding-top: 0;
-
-			.c-banner__post > & {
-				height: rem(300px);
-			}
 		}
 	}
 
 	.c-banner__post {
 		margin-top: rem(-78px);
-		max-height: rem(300px);
+		max-height: rem(480px);
 
 		@include respond-min(md) {
 			margin-top: rem(-153px);

@@ -7,13 +7,21 @@ h6 {
 	color: get-color(heading-text);
 	font-family: $f-family-heading;
 	font-weight: get-weight(bold);
-	margin: rem($d-gutter*2) 0 rem($d-gutter) 0;
+	hyphens: auto;
+	margin: rem($d-gutter * 2) 0 rem($d-gutter) 0;
+	word-break: break-word;
 }
 
 @each $level, $size in $f-scale {
 	$base: get-rem-size(sm);
 
 	#{$level} {
-		font-size: rem($base*$size);
+		font-size: rem($base * $size);
+	}
+}
+
+h1 {
+	@include respond-max(md) {
+		font-size: rem(get-rem-size(sm) * 2);
 	}
 }
