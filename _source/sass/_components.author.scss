@@ -1,6 +1,7 @@
 .c-author {
-	border-top: rem(1px) solid get-color(author-border, lighten, 85%);
-	margin-top: rem($d-gutter * 2);
+	border-bottom: rem(1px) solid get-color(author-border, lighten, 75%);
+	border-top: rem(1px) solid get-color(author-border, lighten, 65%);
+	margin: rem($d-gutter * 2) 0;
 	padding: rem($d-gutter * 2) 0;
 }
 
