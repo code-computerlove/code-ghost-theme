@@ -3,6 +3,10 @@ a {
 	text-decoration: none;
 	transition: all 0.25s ease;
 
+	p > & {
+		border-bottom: 1px solid get-color(primary);
+	}
+
 	&:hover {
 		border-bottom-color: get-color(link-hover);
 		color: get-color(link-hover);
